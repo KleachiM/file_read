@@ -15,9 +15,9 @@ def cb_make(dish, ingredients):
 
 def get_shop_list_by_dishes(dishes, person_count):
     ingr_temp_list = []
-    for dish in cook_book:
-        if dish in dishes:
-            ingr_temp_list += cook_book[dish]
+    for dish in dishes:
+        if dish in cook_book:
+            ingr_temp_list.extend(cook_book[dish])
 
     ingr_temp_dict = {}
     for ingr in ingr_temp_list:
@@ -43,4 +43,4 @@ with open('recipes.txt', encoding='UTF-8') as f:
         cb_make(dish_name, ingr_list)
 
 pprint(cook_book, width=100)
-pprint(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2))
+pprint(get_shop_list_by_dishes(['Омлет', 'Омлет'], 2))
